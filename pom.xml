@@ -28,8 +28,10 @@
                 <version>3.0.0-M1</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/UIRunner.xml</suiteXmlFile>
-                        <suiteXmlFile>src/test/resources/APIRunner.xml</suiteXmlFile>
+                 <!--     <suiteXmlFile>src/test/resources/UIRunner.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/APIRunner.xml</suiteXmlFile>-->
+                        <!--suppress UnresolvedMavenProperty -->
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
