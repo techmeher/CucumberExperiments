@@ -10,6 +10,7 @@ public class DemoSteps {
     @Given("^I have a configured cucumber-jvm project$")
     public void i_have_a_configured_cucumber_jvm_project() throws Exception {
         System.out.println("From Given");
+        System.out.println("From Given Two");
     }
 
     @When("^I run it within my IDE$")
