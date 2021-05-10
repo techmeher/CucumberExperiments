@@ -4,7 +4,9 @@ package steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.annotations.Test;
 
+@Test
 public class DemoSteps {
 
     @Given("^I have a configured cucumber-jvm project$")
