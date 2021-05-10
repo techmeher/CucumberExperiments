@@ -1,12 +1,13 @@
 package steps;
 
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.annotations.Test;
 
-@Test
+@Test(testName = "API_Test")
 public class DemoSteps {
 
     @Given("^I have a configured cucumber-jvm project$")
@@ -23,5 +24,10 @@ public class DemoSteps {
     @Then("^I will be able to run connected step definitions$")
     public void i_will_be_able_to_run_connected_step_definitions() throws Exception {
         System.out.println("From Then");
+    }
+
+    @And("I Included another Step")
+    public void iIncludedAnotherStep() {
+        System.out.println("This is from another Step");
     }
 }

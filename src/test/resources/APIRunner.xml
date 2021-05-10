@@ -4,7 +4,6 @@
     <test name="Test Basics 1">
         <classes>
             <class name="steps.DemoSteps"></class>
-
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
