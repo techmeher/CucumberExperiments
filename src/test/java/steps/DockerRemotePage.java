@@ -38,7 +38,9 @@ public class DockerRemotePage {
         System.out.println("Title is : " + _title);
 
         _remoteDriver.close();
-        _remoteDriver.quit();
+        //this is necessary for firefox to deal with
+        // org.openqa.selenium.NoSuchSessionException: Tried to run command without establishing a connection
+        //  _remoteDriver.quit();
 
     }
 }
