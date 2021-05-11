@@ -3,18 +3,35 @@ package steps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+import pages.LandingPage;
+import pages.RegistrationPage;
 
 public class AutomationSamplePage {
 
     @Test(testName = "UI_Test")
-    public void SomeUIAutomation() throws InterruptedException {
+    public void UIAutomation() throws InterruptedException {
         WebDriver wd = new ChromeDriver();
+        LandingPage landingPage = new LandingPage(wd);
+        RegistrationPage registrationPage = new RegistrationPage(wd);
+
         wd.get("http://automationpractice.com/index.php");
         wd.manage().window().maximize();
-        wd.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a")).click();
+
+        landingPage.signInBtn.click();
+        new WebDriverWait(wd, 3000).until(ExpectedConditions.visibilityOf(landingPage.createEmailTxtFld));
+        landingPage.createEmailTxtFld.sendKeys("mytestmm2021@gmail.com");
+        landingPage.createEmailBtn.click();
+        new WebDriverWait(wd, 3000).until(ExpectedConditions.visibilityOf(registrationPage.formElem));
+        registrationPage.fillInNewCustomerDetails();
+        registrationPage.registerNewCustomer();
         Thread.sleep(5000);
+
+
         wd.close();
         wd.quit();
     }
+
 }
