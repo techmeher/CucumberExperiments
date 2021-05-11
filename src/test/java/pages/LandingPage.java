@@ -17,10 +17,22 @@ public class LandingPage extends BasePage {
     @FindBy(how = How.ID, id = "SubmitCreate")
     public WebElement createEmailBtn;
 
+    @FindBy(how = How.ID, id = "email")
+    public WebElement loginEmailTextFld;
+
+    @FindBy(how = How.ID, id = "passwd")
+    public WebElement loginPasswordTextFld;
+
+    @FindBy(how = How.ID, id = "SubmitLogin")
+    public WebElement loginBtn;
 
     public LandingPage(WebDriver _driver) {
         super(_driver);
     }
 
-
+    public void loginWithRegisteredUser() {
+        loginEmailTextFld.sendKeys("mytestmm2121@gmail.com");
+        loginPasswordTextFld.sendKeys("Password01!");
+        loginBtn.click();
+    }
 }

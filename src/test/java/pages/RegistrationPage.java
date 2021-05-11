@@ -73,7 +73,6 @@ public class RegistrationPage extends BasePage {
     @FindBy(how = How.ID, id = "submitAccount")
     public WebElement registerBtn;
 
-
     public RegistrationPage(WebDriver _driver) {
         super(_driver);
     }
@@ -96,12 +95,14 @@ public class RegistrationPage extends BasePage {
         addCountryNameSelectFld.sendKeys("United States");
         addPostcodeTxtFld.sendKeys("00000");
         addMobileTxtFld.sendKeys("20011000");
-        addReferenceEmailTxtFld.sendKeys("mytestmm201@gmail.com");
+        addReferenceEmailTxtFld.sendKeys("mytestmm212@gmail.com");
     }
 
     public void registerNewCustomer() {
 
         registerBtn.click();
     }
+
+
 
 }
