@@ -24,5 +24,15 @@ public class StreamExample {
 
         System.out.println("Stream of int2 summing up " + sumOfAllNumbers2);
 
+        String _testStr = "Sample Example String";
+        System.out.println("Char occurrences in s string  :: " + StreamExample.getOccurances(_testStr, 'S'));
+
+
+
+    }
+
+    public static long getOccurances(String str, char c) {
+        return str.chars()
+                .filter(e -> e == c).count();
     }
 }

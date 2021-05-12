@@ -73,8 +73,12 @@ public class RegistrationPage extends BasePage {
     @FindBy(how = How.ID, id = "submitAccount")
     public WebElement registerBtn;
 
-    public RegistrationPage(WebDriver _driver) {
+    private RegistrationPage(WebDriver _driver) {
         super(_driver);
+    }
+
+    public static RegistrationPage using(WebDriver _driver){
+        return new RegistrationPage(_driver);
     }
 
     public void fillInNewCustomerDetails() {

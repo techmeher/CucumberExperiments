@@ -15,13 +15,12 @@ public class AutomationSamplePage {
     @Test(testName = "UI_Test")
     public void UIAutomation() throws InterruptedException {
         WebDriver wd = new ChromeDriver();
-        LandingPage landingPage = new LandingPage(wd);
-        RegistrationPage registrationPage = new RegistrationPage(wd);
 
         wd.get("http://automationpractice.com/index.php");
         wd.manage().window().maximize();
 
-        landingPage.signInBtn.click();
+        LandingPage.using(wd)
+                .signInBtn.click();
 /*
 //new registration
         new WebDriverWait(wd, 3000).until(ExpectedConditions.visibilityOf(landingPage.createEmailTxtFld));
@@ -34,11 +33,11 @@ public class AutomationSamplePage {
 */
 
         //login with registered user
-        new WebDriverWait(wd, 3000).until(ExpectedConditions.visibilityOf(landingPage.createEmailTxtFld));
-        landingPage.loginWithRegisteredUser();
+        new WebDriverWait(wd, 3000).until(ExpectedConditions.visibilityOf(LandingPage.using(wd).createEmailTxtFld));
+        LandingPage.using(wd).loginWithRegisteredUser();
 
-        ProductPage pp = new ProductPage(wd);
-        pp.displayDresses();
+        ProductPage.using(wd)
+                .displayDresses();
 
         Thread.sleep(5000);
 

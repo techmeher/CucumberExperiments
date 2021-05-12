@@ -6,14 +6,18 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class ProductPage extends BasePage {
-    @FindBy(how = How.XPATH, xpath = "//*[@'Dresses']")
+    @FindBy(how = How.XPATH, xpath = "//a[@title='Dresses']")
     public WebElement dressesMenu;
 
-    public ProductPage(WebDriver _driver) {
+    private ProductPage(WebDriver _driver) {
         super(_driver);
     }
 
-    public void displayDresses() {
+    public static ProductPage using(WebDriver _driver){
+        return new ProductPage(_driver);
+    }
+    public ProductPage displayDresses() {
         dressesMenu.click();
+        return this;
     }
 }

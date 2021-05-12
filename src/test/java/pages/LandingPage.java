@@ -13,7 +13,6 @@ public class LandingPage extends BasePage {
     @FindBy(how = How.XPATH, xpath = "//*[@name='email_create']")
     public WebElement createEmailTxtFld;
 
-
     @FindBy(how = How.ID, id = "SubmitCreate")
     public WebElement createEmailBtn;
 
@@ -26,13 +25,18 @@ public class LandingPage extends BasePage {
     @FindBy(how = How.ID, id = "SubmitLogin")
     public WebElement loginBtn;
 
-    public LandingPage(WebDriver _driver) {
+    private LandingPage(WebDriver _driver) {
         super(_driver);
     }
 
-    public void loginWithRegisteredUser() {
+    public static LandingPage using(WebDriver _driver) {
+        return new LandingPage(_driver);
+    }
+
+    public LandingPage loginWithRegisteredUser() {
         loginEmailTextFld.sendKeys("mytestmm2121@gmail.com");
         loginPasswordTextFld.sendKeys("Password01!");
         loginBtn.click();
+        return this;
     }
 }
